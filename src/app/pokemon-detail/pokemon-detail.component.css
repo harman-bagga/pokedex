@@ -1,8 +1,8 @@
 .card {
-    width: 65%;
-    left: 18%;
-    top: 18%;
-    height:50%;
+    width: 75%;
+    left: 10%;
+    top: 10%;
+    height:60%;
     overflow:auto;
 }
 @media screen and (max-width: 600px) {
@@ -36,7 +36,7 @@
     height: 24px;
 }
 mat-list.mat-list.mat-list-base.ng-star-inserted {
-    height: 300px;
+    height: 400px;
 }
 nav.navbar.navbar-dark.bg-dark {
     height: 10%;
@@ -49,7 +49,7 @@ a.navbar-brand {
     display: flex;
 }
 mat-list.mat-list.mat-list-base {
-    height: 300px;
+    height: 400px;
 }
 .infoItem {
     display: flex;

@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { element } from 'protractor';
 import { PokemonApiService } from '../pokemon-api.service';
+import { ChartDataSets, ChartType, RadialChartOptions } from 'chart.js';
+import { Label } from 'ng2-charts';
 
 @Component({
   selector: 'app-pokemon-detail',
@@ -9,8 +11,20 @@ import { PokemonApiService } from '../pokemon-api.service';
   styleUrls: ['./pokemon-detail.component.css']
 })
 export class PokemonDetailComponent implements OnInit {
+  // tslint:disable-next-line: quotemark
+  public radarChartOptions: RadialChartOptions = {
+    responsive: true,
+  };
+  public radarChartLabels: Label[] = [];
 
-  constructor(private pokemonApiService: PokemonApiService, private route: Router) { }
+  public radarChartData: ChartDataSets[] = [
+    { data: [], label: 'Stats' },
+
+  ];
+  public radarChartType: ChartType = 'radar';
+
+  constructor(private pokemonApiService: PokemonApiService, private route: Router) {
+  }
   pokemonDetail = {
     name: '',
     image: [] as any,
@@ -21,15 +35,16 @@ export class PokemonDetailComponent implements OnInit {
     moves: [] as any,
     species: '',
     stats: [] as any,
+    statsName: [] as any,
+    statsNum: [] as any,
 
   };
 
   ngOnInit(): void {
     this.getPokmeondetail();
   }
-// tslint:disable-next-line: typedef
+  // tslint:disable-next-line: typedef
   getImage(url: any) {
-    console.log('url=' + url);
     this.pokemonApiService.getDetail(url).subscribe(data => {
 
       for (const [key, value] of Object.entries(data.sprites)) {
@@ -41,10 +56,9 @@ export class PokemonDetailComponent implements OnInit {
       //   this.pokemonDetail.image.push()
       // }
       // this.pokemonDetail.image=data.sprites
-      console.log('data image-' + this.pokemonDetail.image);
     });
   }
-// tslint:disable-next-line: typedef
+  // tslint:disable-next-line: typedef
   getPokmeondetail() {
     this.pokemonApiService.getDetail(sessionStorage.link).subscribe(data => {
       // console.log('data-' + data.name);
@@ -55,25 +69,30 @@ export class PokemonDetailComponent implements OnInit {
       this.pokemonDetail.moves = data.moves;
       this.pokemonDetail.species = data.species.name,
       this.pokemonDetail.stats = data.stats;
-
-
-
 // tslint:disable-next-line: no-shadowed-variable
+      data.stats.map((data: any) => {
+
+          this.pokemonDetail.statsNum.push(data.base_stat);
+          this.pokemonDetail.statsName.push(data.stat.name);
+
+      });
+      this.radarChartLabels = this.pokemonDetail.statsName;
+      this.radarChartData[0].data = this.pokemonDetail.statsNum;
+
+      // tslint:disable-next-line: no-shadowed-variable
       Object.keys(data.types).forEach(element => {
-          console.log('type-' + data.types[element].type.name);
-          this.pokemonDetail.type = this.pokemonDetail.type + ' ' + data.types[element].type.name;
-    });
+        this.pokemonDetail.type = this.pokemonDetail.type + ' ' + data.types[element].type.name;
+      });
 
-    // for (const [key, value] of Object.entries(data.types)) {
+      // for (const [key, value] of Object.entries(data.types)) {
 
-    //   console.log('value-' + value1.name);
-    // }
+      //   console.log('value-' + value1.name);
+      // }
       this.getImage(data.forms[0]?.url);
 
-      console.log('move-' + data.moves[0].move.name);
-  });
+    });
 
-}
+  }
 
 
 }

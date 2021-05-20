@@ -13,7 +13,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 import { RouterModule } from '@angular/router';
 import {MatDividerModule} from '@angular/material/divider';
-
+import { ChartsModule } from 'ng2-charts';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +30,8 @@ import {MatDividerModule} from '@angular/material/divider';
     MatListModule,
     AutocompleteLibModule,
     RouterModule,
-    MatDividerModule
+    MatDividerModule,
+    ChartsModule,
 
   ],
   providers: [],
