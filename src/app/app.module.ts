@@ -12,6 +12,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 import { RouterModule } from '@angular/router';
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { RouterModule } from '@angular/router';
     MatListModule,
     AutocompleteLibModule,
     RouterModule,
+    MatDividerModule
 
   ],
   providers: [],

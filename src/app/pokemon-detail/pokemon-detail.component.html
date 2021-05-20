@@ -1,5 +1,5 @@
 <nav class="navbar navbar-dark bg-dark">
-  <a class="navbar-brand" routerLink='/home'>Pokedex</a>
+  <a class="navbar-brand" routerLink="/home">Pokedex</a>
 </nav>
 
 <div class="card">
@@ -21,58 +21,129 @@
       <div class="col-md-6 col-12">
         <mat-tab-group>
           <mat-tab label="INFO">
-            <div class="row">
-              <div class="col-12 detail">
-                <span>Name</span>
-                <span> {{ pokemonDetail.name }}</span>
-              </div>
+            <mat-list role="list">
+              <mat-list-item role="listitem">
+                <div class="infoItem">
+                  
+                  <div class="row">
+                    <div class="col-2">
+                      <mat-icon mat-list-icon > label_important</mat-icon>
+                    </div>
+                    <div class="col-10">
+                      <div>   Name:{{pokemonDetail.name}}</div>
+                    </div>
+                  
+                  </div>
+                </div>
+              </mat-list-item>
+              <mat-divider></mat-divider>
 
-              <div class="col-12 detail">
-                <span>Weight</span>
-                <span> {{ pokemonDetail.weight }}</span>
-              </div>
-              <div class="col-12 detail">
-                <span>Height</span>
-                <span> {{ pokemonDetail.height }}</span>
-              </div>
-              <div class="col-12 detail">
-                <span>Base Experience</span>
-                <span> {{ pokemonDetail.base_experience }}</span>
-              </div>
+              <mat-list-item role="listitem">
+                <div class="infoItem">
+                  <div class="row">
+                    <div class="col-2">
+                      <mat-icon mat-list-icon >label_important</mat-icon>
+                    </div>
+                    <div class="col-10">
+                      <div>   Weight:{{ pokemonDetail.weight }}</div>
+                    </div>
+                   
+                  </div>
+                </div>
+              </mat-list-item>
+              <mat-divider></mat-divider>
 
-              <div class="col-12 detail">
-                <span> species</span>
-                <span> {{ pokemonDetail.species }}</span>
-              </div>
-              <div class="col-12 detail">
-                <span> type</span>
-                <span> {{ pokemonDetail.type }}</span>
-              </div>
-            </div>
+              <mat-list-item role="listitem">
+                <div class="infoItem">
+                
+                  <div class="row">
+                    <div class="col-2">
+                      <mat-icon mat-list-icon > label_important</mat-icon>
+                    </div>
+                    <div class="col-10">
+                      <div>   Height:{{ pokemonDetail.height }}</div>
+                    </div>
+                  
+                  </div>
+                </div>
+
+              </mat-list-item>
+              <mat-divider></mat-divider>
+
+              <mat-list-item role="listitem">
+                <div class="infoItem">
+                  <div class="row">
+                    <div class="col-2">
+                      <mat-icon mat-list-icon > label_important</mat-icon>
+                    </div>
+                    <div class="col-10">
+                      <div>Base Experience:{{ pokemonDetail.base_experience }}</div>
+                    </div>
+                  
+                  </div>
+                </div>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+
+              <mat-list-item role="listitem">
+                <div class="infoItem">
+                  <div class="row">
+                    <div class="col-2">
+                      <mat-icon mat-list-icon > label_important</mat-icon>
+                    </div>
+                    <div class="col-10">
+                      <div>Species:{{ pokemonDetail.species }}</div>
+                    </div>
+                   
+                  </div>
+                </div>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+
+              <mat-list-item role="listitem">
+                <div class="infoItem">
+                  <div class="row">
+                    <div class="col-2">
+                      <mat-icon mat-list-icon > label_important</mat-icon>
+                    </div>
+                    <div class="col-10">
+                      <div>Type:{{ pokemonDetail.type }}</div>
+                    </div>
+                   
+                  </div>
+                </div>
+              </mat-list-item>
+            </mat-list>
+          
           </mat-tab>
           <mat-tab label="MOVES">
             <mat-list role="list">
               <mat-list-item *ngFor="let move of pokemonDetail.moves">
-                <mat-icon mat-list-icon>trending_flat</mat-icon>
+                <mat-icon mat-list-icon>label_important</mat-icon>
                 <div mat-line>{{ move.move.name }}</div>
+                <mat-divider></mat-divider>
               </mat-list-item>
+           
+
             </mat-list>
           </mat-tab>
-          <mat-tab label="Sats"> 
-              <div class="row stats">
-                <mat-list role="stat">
-                    <mat-list-item *ngFor="let stat of pokemonDetail.stats">
-                    <div class='stat'>
-                      <mat-icon mat-list-icon>trending_flat</mat-icon>
-                      <div mat-line>{{ stat.stat.name }}:</div>
-                        
-                      <div mat-line>{{ stat.base_stat }}</div>
-                    </div>
-                    </mat-list-item>
-                  </mat-list>
-              </div>
-              
-        </mat-tab>
+          <mat-tab label="Sats">
+            <div class="row stats">
+              <mat-list role="stat">
+                <mat-list-item *ngFor="let stat of pokemonDetail.stats">
+                  <div class="stat">
+                    
+                    <mat-icon mat-list-icon class="trend">label_important</mat-icon>
+                    <div mat-line>{{ stat.stat.name }}:</div>
+
+                    <div mat-line>{{ stat.base_stat }}</div>
+                    
+                  </div>
+                  <mat-divider></mat-divider>
+                </mat-list-item>
+              </mat-list>
+            </div>
+          </mat-tab>
         </mat-tab-group>
       </div>
     </div>

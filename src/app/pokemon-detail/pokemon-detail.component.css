@@ -1,9 +1,19 @@
 .card {
     width: 65%;
     left: 18%;
-    top: 22%;
-    height:50%
+    top: 18%;
+    height:50%;
+    overflow:auto;
 }
+@media screen and (max-width: 600px) {
+    .card {
+        height:100%;
+        width: 100%;
+        left:0;
+        top:5%;
+    }
+  }
+
 .col-6.nameImage {
     border-right: 1px solid black;
     height: 378px;
@@ -40,4 +50,17 @@ a.navbar-brand {
 }
 mat-list.mat-list.mat-list-base {
     height: 300px;
+}
+.infoItem {
+    display: flex;
+}
+.col-10 {
+    display: flex;
+    position: relative;
+    top: 7px;
+}
+mat-icon.mat-icon.notranslate.mat-list-icon.trend.material-icons.mat-icon-no-color {
+    display: flex;
+    position: relative;
+    bottom: 5px;
 }
