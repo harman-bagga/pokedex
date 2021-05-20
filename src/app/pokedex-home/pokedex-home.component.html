@@ -1,0 +1,41 @@
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink='/home'>Pokedex</a>
+  <div class="ng-autocomplete">
+    <ng-autocomplete 
+      [data]="pokemonList"
+      [searchKeyword]="keyword"
+      (selected)='selectEvent($event)'
+      placeholder="search"
+     
+      [itemTemplate]="itemTemplate"
+      [notFoundTemplate]="notFoundTemplate">                                 
+    </ng-autocomplete>
+    
+    <ng-template #itemTemplate let-item>
+    <a [innerHTML]="item.name"></a>
+    </ng-template>
+    
+    <ng-template #notFoundTemplate let-notFound>
+    <div [innerHTML]="notFound"></div>
+    </ng-template>
+    </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 buttonn">
+      <button type="button" class="btn btn-secondary mr-5" *ngIf="isPrev" (click)="pageChange('prev')">PREV</button>
+
+      <button type="button" class="btn btn-secondary" *ngIf="isNext" (click)="pageChange('next')">NEXT</button>
+
+    </div>
+  </div>
+  <div class="row" *ngIf="showList">
+    <div class="col-md-2 col-6" *ngFor="let pokemon of pokemonList">
+      <div class="card">
+        <div class="card-body" (click)="getLink(pokemon.url)">
+        <span class="name">  {{ pokemon.name }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

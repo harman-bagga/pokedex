@@ -1,0 +1,24 @@
+.card {
+    margin-top: 12%;
+    margin-left: 5%;
+    width: 107%;
+    height: 85%;
+}
+span.name {
+    margin-left: 31%;
+    font-size: 19px;
+}
+nav.navbar.navbar-dark.bg-dark {
+    height: 10%;
+}
+a.navbar-brand {
+    font-size: 33px;
+    margin-left: 31px;
+}
+.col-12.buttonn {
+    margin-left: 41%;
+    margin-top: 1%;
+}
+button.btn.btn-secondary.mr-5 {
+    margin-right: 2%;
+}

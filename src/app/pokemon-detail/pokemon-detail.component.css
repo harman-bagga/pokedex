@@ -1,0 +1,43 @@
+.card {
+    width: 65%;
+    left: 18%;
+    top: 22%;
+    height:50%
+}
+.col-6.nameImage {
+    border-right: 1px solid black;
+    height: 378px;
+
+}
+.col-12.pokemonName {
+    font-size: 30px;
+    margin-left: 34%;
+    margin-top: 5%;
+}
+.row.image {
+    margin-top: 10%;
+}
+.col-12.detail {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 4%;
+    background-color: #eff0f1;
+    font-size: 18px;
+    height: 24px;
+}
+mat-list.mat-list.mat-list-base.ng-star-inserted {
+    height: 300px;
+}
+nav.navbar.navbar-dark.bg-dark {
+    height: 10%;
+}
+a.navbar-brand {
+    font-size: 33px;
+    margin-left: 31px;
+}
+.stat {
+    display: flex;
+}
+mat-list.mat-list.mat-list-base {
+    height: 300px;
+}
